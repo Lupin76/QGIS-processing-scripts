@@ -122,12 +122,6 @@ class mioScript(QgsProcessingAlgorithm):
             parameters,
             self.INPUT,
             context)
-
-       # 4C Output stack 
-        stackOut = self.parameterAsOutputLayer(
-            parameters, 
-            self.OUTPUT, 
-            context)
  
         # -------------------------------------------------------------------------------------------------------------
         # 5 ------------------------------------- Check -----------------------------------------------------------
