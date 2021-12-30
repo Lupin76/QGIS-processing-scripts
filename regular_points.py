@@ -70,7 +70,6 @@ class mioScript(QgsProcessingAlgorithm):
     # 2A
     INPUT = "INPUT"
     PIXEL_DIMENSION = "PIXEL_DIMENSION"
-    MASK = "MASK"
     OUTPUT = "OUTPUT"
  
     # 2B
@@ -121,12 +120,7 @@ class mioScript(QgsProcessingAlgorithm):
             minValue=0.0,
             defaultValue=10.0))
             
-        # 3D Output raster
-        self.addParameter(QgsProcessingParameterRasterDestination(
-            self.MASK,
-            self.tr('Output raster')))
-            
-        # 3E Output shape points
+        # 3D Output shape points
         self.addParameter(QgsProcessingParameterFeatureSink(
             self.OUTPUT,
             self.tr('Random points'),
@@ -213,7 +207,7 @@ class mioScript(QgsProcessingAlgorithm):
             "INIT": 0,
             "INVERT": False,
             "EXTRA": "",
-            "OUTPUT": parameters[self.MASK]}
+            "OUTPUT": "TEMPORARY_OUTPUT"}
 
         # 6D Run rasterization
         processOut = processing.run(
